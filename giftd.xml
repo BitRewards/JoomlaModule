@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="plugin" version="1.5" method="upgrade" group="system">
+<extension type="plugin" version="2.5" method="upgrade" group="system">
     <name>GIFTD</name>
     <version>1.0</version>
-    <creationDate>2015-10-22</creationDate>
-    <author>Joomline</author>
-    <authorUrl>joomline.ru</authorUrl>
-    <authorEmail>sales@joomline.ru</authorEmail>
+    <creationDate>2015-11-09</creationDate>
+    <author>(C) 2015 Arkadiy Sedelnikov, Joomline. All rights reserved.</author>
+    <authorUrl>http://joomline.ru</authorUrl>
+    <authorEmail>sale@joomline.ru</authorEmail>
+	<license>GNU General Public License version 2 or later</license>
     <version>1.0</version>
     <description>GIFTD_DESC</description>
     <files>
@@ -85,4 +86,7 @@
             </fieldset>
         </fields>
     </config>
+	<updateservers><server type="extension" priority="1" name="Convead">https://raw.githubusercontent.com/Giftd/giftd-joomla/master/updateconvead.xml</server></updateservers>
+</extension>
+
 </extension>
