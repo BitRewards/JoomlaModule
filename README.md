@@ -38,34 +38,4 @@
 > **HikaShop**  
 > Ура! Ничего не нужно делать!
 
-* Если у вас магазин на VirtueMart, то вам придется внести одно небольшое изменение в исходный код магазина:
-
-1. Откройте файл `components/com_virtuemart/helpers/cart.php`
-2. Найдите функцию `checkoutData()`
-3. В конце этой функции **перед** строчкой `if (!empty($this->couponCode)) {` вставьте следующий код:
-
-```php
-/* Giftd hack */
-if (empty($this->couponCode) && !empty(self::$_cart->cartData["couponCode"])) {
-   $this->couponCode = self::$_cart->cartData["couponCode"];
-  }
-/* End Giftd hack */
-```
-4. Так же необходмо изменить функцию редиректа:
-
-```php
-/* Giftd hack */
-if (!empty($redirectMsg)) {
-    $this->couponCode = '';
-    $this->_inCheckOut = false;
-    $this->setCartIntoSession();
-
-//doesn't work the first time
-    //return $this->redirecter('index.php?option=com_virtuemart&view=cart'.$layoutName , $redirectMsg);
-//its work
-     JFactory::getApplication()->redirect('index.php?option=com_virtuemart&view=cart'.$layoutName , $redirectMsg);
-   }
-/* End Giftd hack */
-```
-
 ***
