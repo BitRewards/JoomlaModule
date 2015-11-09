@@ -86,7 +86,5 @@
             </fieldset>
         </fields>
     </config>
-	<updateservers><server type="extension" priority="1" name="Convead">https://raw.githubusercontent.com/Giftd/giftd-joomla/master/updateconvead.xml</server></updateservers>
-</extension>
-
+	<updateservers><server type="extension" priority="1" name="Giftd">https://raw.githubusercontent.com/Giftd/giftd-joomla/master/updateconvead.xml</server></updateservers>
 </extension>
