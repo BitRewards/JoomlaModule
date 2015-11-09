@@ -7,7 +7,8 @@
  * @copyright	© 2015. All rights reserved.
  * @license 	GNU/GPL v.2 or later.
  */
-
+defined('_JEXEC') or die('Direct Access not allowed.');
+ 
 class Giftd_Client
 {
     private $userId;
