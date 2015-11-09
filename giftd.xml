@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="1.5" method="upgrade" group="system">
+    <name>GIFTD</name>
+    <version>1.0</version>
+    <creationDate>2015-10-22</creationDate>
+    <author>Joomline</author>
+    <authorUrl>joomline.ru</authorUrl>
+    <authorEmail>sales@joomline.ru</authorEmail>
+    <version>1.0</version>
+    <description>GIFTD_DESC</description>
+    <files>
+        <folder>assets</folder>
+        <folder>includes</folder>
+        <folder>language</folder>
+        <folder>lib</folder>
+        <filename plugin="giftd">giftd.php</filename>
+    </files>
+
+    <config>
+        <fields name="params" >
+            <fieldset name="basic">
+                <field
+                        name="shop"
+                        type="list"
+                        label="PLG_SYSTEM_GIFT_SHOP"
+                        default="virtuemart"
+                        >
+                    <option value="hikashop">HikaShop</option>
+                    <option value="virtuemart">Virtuemart</option>
+                    <option value="joomshopping">JoomShopping</option>
+                </field>
+
+                <field
+                        name="user"
+                        type="user"
+                        label="PLG_SYSTEM_GIFT_USER"
+                        default=""
+                        />
+                <field
+                        name="user_id"
+                        type="text"
+                        label="PLG_SYSTEM_GIFT_USER_ID"
+                        default=""
+                        />
+
+                <field
+                        name="api_key"
+                        type="text"
+                        label="PLG_SYSTEM_GIFT_API_KEY"
+                        default=""
+                        />
+                <field
+                        name="partner_code"
+                        type="text"
+                        label="PLG_SYSTEM_GIFT_PARTNER_CODE"
+                        default=""
+                        />
+                <field
+                        name="partner_token_prefix"
+                        type="text"
+                        label="PLG_SYSTEM_GIFT_PARTNER_TOKEN_PREFIX"
+                        default=""
+                        />
+            </fieldset>
+            <fieldset name="virtuemart">
+                <field
+                        name="virtuemart_vendor_id"
+                        type="sql"
+                        label="PLG_SYSTEM_GIFT_VIRTUEMART_VENDOR"
+                        query="select virtuemart_vendor_id, vendor_name from #__virtuemart_vendors"
+                        key_field="virtuemart_vendor_id" value_field="vendor_name"
+                        />
+            </fieldset>
+            <fieldset name="joomshopping">
+
+            </fieldset>
+            <fieldset name="hikashop">
+                <field
+                        name="discount_currency_id"
+                        type="sql"
+                        label="PLG_SYSTEM_GIFT_DISCOUNT_CURRENCY_ID"
+                        query="select currency_id, currency_name from #__hikashop_currency"
+                        key_field="currency_id" value_field="currency_name"
+                        />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
