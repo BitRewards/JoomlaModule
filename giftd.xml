@@ -84,7 +84,7 @@
                         name="discount_currency_id"
                         type="text"
                         label="PLG_SYSTEM_GIFT_DISCOUNT_CURRENCY_ID"
-						default=""
+						default="RUB"
                         />
             </fieldset>
         </fields>
