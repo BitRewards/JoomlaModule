@@ -3,8 +3,8 @@
     <name>GIFTD</name>
     <version>1.0</version>
     <creationDate>2015-11-09</creationDate>
-    <author>(C) 2015 Arkadiy Sedelnikov, Joomline. All rights reserved.</author>
-    <authorUrl>http://joomline.ru</authorUrl>
+    <author>(C) 2015 Arkadiy Sedelnikov, Joomline for Giftd. All rights reserved.</author>
+    <authorUrl>http://giftd.ru</authorUrl>
     <authorEmail>sale@joomline.ru</authorEmail>
 	<license>GNU General Public License version 2 or later</license>
     <version>1.0</version>
@@ -16,7 +16,12 @@
         <folder>lib</folder>
         <filename plugin="giftd">giftd.php</filename>
     </files>
-
+	<languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_giftd.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_giftd.sys.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_system_giftd.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.plg_system_giftd.sys.ini</language>
+    </languages>
     <config>
         <fields name="params" >
             <fieldset name="basic">
@@ -86,5 +91,5 @@
             </fieldset>
         </fields>
     </config>
-	<updateservers><server type="extension" priority="1" name="Giftd">https://raw.githubusercontent.com/Giftd/giftd-joomla/master/updateconvead.xml</server></updateservers>
+	<updateservers><server type="extension" priority="1" name="Giftd">https://raw.githubusercontent.com/Giftd/giftd-joomla/master/updategift.xml</server></updateservers>
 </extension>
