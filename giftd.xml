@@ -71,10 +71,9 @@
             <fieldset name="virtuemart">
                 <field
                         name="virtuemart_vendor_id"
-                        type="sql"
+                        type="text"
                         label="PLG_SYSTEM_GIFT_VIRTUEMART_VENDOR"
-                        query="select virtuemart_vendor_id, vendor_name from #__virtuemart_vendors"
-                        key_field="virtuemart_vendor_id" value_field="vendor_name"
+                        default=""
                         />
             </fieldset>
             <fieldset name="joomshopping">
@@ -83,10 +82,9 @@
             <fieldset name="hikashop">
                 <field
                         name="discount_currency_id"
-                        type="sql"
+                        type="text"
                         label="PLG_SYSTEM_GIFT_DISCOUNT_CURRENCY_ID"
-                        query="select currency_id, currency_name from #__hikashop_currency"
-                        key_field="currency_id" value_field="currency_name"
+						default=""
                         />
             </fieldset>
         </fields>
