@@ -1,13 +1,11 @@
 # Giftd + Joomla = ❤
-Плагин Giftd для интернет-магазинов на базе CMS Joomla.
+Плагин Giftd для интернет-магазинов на базе CMS Joomla. Совместим с Virtuemart, JoomShopping и HikaShop.
 
 1. Требования к CMS
 -------------------
 
 * Версия Joomla 2.5/3.x
-* Virtuemart 2.6/3.x
-* JoomShopping 3.x/4.x
-* HikaShop 2.2+
+* Virtuemart 2.6/3.x, либо JoomShopping 3.x/4.x, либо HikaShop 2.2+
 
 2. Установите плагин Giftd через Менеджер расширений Joomla
 -------------------------------------------------------------
