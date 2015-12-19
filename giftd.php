@@ -125,6 +125,10 @@ class PlgSystemGiftd extends JPlugin
 			if(!empty($token_prefix))
 				$params->set('partner_token_prefix', $token_prefix);
 
+			if(!empty($code)){
+				$this->params = $params;
+				$this->updateJavaScript();
+			}
 
 			$query->clear()->update($db->quoteName('#__extensions'));
 			$query->set($db->quoteName('params') . '= ' . $db->quote((string)$params));
