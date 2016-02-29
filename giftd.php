@@ -55,7 +55,7 @@ class PlgSystemGiftd extends JPlugin
 		}
 
 		$user = JFactory::getUser();
-		$jconfig = \JFactory::getConfig();
+		$jconfig = JFactory::getConfig();
 
 		$data = array(
 			'email' => $user->get('email', ''),
@@ -77,14 +77,21 @@ class PlgSystemGiftd extends JPlugin
 			if(!empty($result['data']))
 			{
 				$requestData = $result['data'];
-				if(empty($requestData['partner_token_prefix']) && empty($requestData['partner_code']))
+				if(!empty($requestData['token_prefix']) && !empty($requestData['code']))
 				{
-					if(!empty($requestData['code'])){
-						$app->setUserState('plugins.system.giftd.code', $requestData['code']);
-					}
-					if(!empty($requestData['token_prefix'])){
-						$app->setUserState('plugins.system.giftd.token_prefix', $requestData['token_prefix']);
-					}
+					$code = $requestData['code'];
+					$token_prefix = $requestData['token_prefix'];
+
+					$this->params->set('partner_token_prefix', $token_prefix);
+					$this->params->set('partner_code', $code);
+					$this->params->set('api_key', $params['api_key']);
+					$this->params->set('user_id', $params['user_id']);
+					$this->updateJavaScript();
+
+					$tableParams = new Registry($table->params);
+					$tableParams->set('partner_token_prefix', $token_prefix);
+					$tableParams->set('partner_code', $code);
+					$table->params = (string)$tableParams;
 				}
 			}
 
@@ -93,51 +100,6 @@ class PlgSystemGiftd extends JPlugin
 		{
 			$app->enqueueMessage(JText::_('PLG_SYSTEM_GIFT_ERROR_QUERY'), 'error');
 		}
-		return true;
-	}
-
-	public function onExtensionAfterSave($context, $table, $isNew)
-	{
-		if(!($context == 'com_plugins.plugin' && $table->element == 'giftd'))
-		{
-			return true;
-		}
-		$app = JFactory::getApplication();
-		$code = $app->getUserState('plugins.system.giftd.code', '');
-		$token_prefix = $app->getUserState('plugins.system.giftd.token_prefix', '');
-		$app->setUserState('plugins.system.giftd.code', '');
-		$app->setUserState('plugins.system.giftd.token_prefix', '');
-
-		if(!empty($code) || !empty($token_prefix))
-		{
-			$db = JFactory::getDbo();
-			$query = $db->getQuery(true);
-			$query->select($db->quoteName('params'))
-				->from($db->quoteName('#__extensions'))
-				->where($db->quoteName('element') . ' = ' . $db->quote('giftd'))
-				->where($db->quoteName('type') . ' = ' . $db->quote('plugin'));
-
-			$params = new Registry($db->setQuery($query,0,1)->loadResult());
-
-			if(!empty($code))
-				$params->set('partner_code', $code);
-
-			if(!empty($token_prefix))
-				$params->set('partner_token_prefix', $token_prefix);
-
-			if(!empty($code)){
-				$this->params = $params;
-				$this->updateJavaScript();
-			}
-
-			$query->clear()->update($db->quoteName('#__extensions'));
-			$query->set($db->quoteName('params') . '= ' . $db->quote((string)$params));
-			$query->where($db->quoteName('element') . ' = ' . $db->quote('giftd'));
-			$query->where($db->quoteName('type') . ' = ' . $db->quote('plugin'));
-			$db->setQuery($query);
-			$db->execute();
-		}
-
 		return true;
 	}
 
