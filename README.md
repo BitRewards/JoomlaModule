@@ -1,4 +1,36 @@
-# Giftd + Joomla = ❤
+# BitRewards + Joomla = ❤
+BitRewards plugin for ecommerce businesses based on Joomla CMS. Compatible with Virtuemart, JoomShopping and HikaShop.
+
+1. CMS Requirements
+-------------------
+
+* Joomla 2.5/3.x
+* Virtuemart 2.6/3.x, or JoomShopping 3.x/4.x, or HikaShop 2.2+
+
+2. Install plugin via Joomla Extension Manager
+-------------------------------------------------------------
+* Go to "Extension manager" in the admin area of your  Joomla shop
+* Go to the tab "Install from URL", enter the plugin address `https://github.com/Giftd/giftd-joomla/archive/master.zip` and click "Install".
+* Find the plugin in the installed extensions list and enable it.
+
+3. Configure the plugin
+-------------------
+
+* Go to "Extensions" -> "Plugins manager". Find GIFTD plugin and click on it.
+* Fill GIFTD User ID 
+* Fill GIFTD API Key
+* Fill GIFTD Partner Code
+* Fill Gift Cards Codes Prefix
+
+You can find the correspondent values here: https://partner.giftd.tech/partner/apiCredentials
+
+
+
+
+***
+
+
+# Russian Instruction
 Плагин Giftd для интернет-магазинов на базе CMS Joomla. Совместим с Virtuemart, JoomShopping и HikaShop.
 
 1. Требования к CMS
